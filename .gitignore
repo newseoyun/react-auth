@@ -138,3 +138,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+### Custom ###
+dev.js
