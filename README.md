@@ -1,4 +1,4 @@
 ## react-auth
 
 
-### nodeJS, express, react, mongoDB, JWT
+### nodeJS, express, react, mongoDB, JWT, Webpack
