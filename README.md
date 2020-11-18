@@ -1,1 +1,4 @@
-# react-auth
+## react-auth
+
+
+### nodeJS, express, react, mongoDB, JWT
