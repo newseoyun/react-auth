@@ -21,7 +21,7 @@ mongoose.connect(config.mongoURI, {
 
 app.get('/', (req, res) => res.send('hello~~~안뇽?'));
 
-app.post('/register', (req, res) => {
+app.post('/api/users/register', (req, res) => {
 
     const user = new User(req.body);
 
@@ -34,7 +34,7 @@ app.post('/register', (req, res) => {
     });
 });
 
-app.post('/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
     // 유저 검증
     User.findOne({ email: req.body.email }, (err, user) => {
         if (!user) {
@@ -82,5 +82,20 @@ app.get('/api/users/auth', auth, (req, res) => {
         image: req.user.image
     })
 })
+
+app.get('/api/users/logout', auth, (req, res) => {
+
+    User.findOneAndUpdate(
+        { _id: req.user._id },
+        { token: "" },
+        (err, user) => {
+            if (err) return res.json({ success: false, err });
+
+            return res.status(200).send({ success: true });
+        })
+})
+
+
+
 
 app.listen(port, () => console.log(`server run port ${port}`));

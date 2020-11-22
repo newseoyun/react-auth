@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const { User } = require("../models/User");
 
 // 인증처리. 쿠키에서 토큰 가져오고 복호화
 let auth = (req, res, next) => {
