@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8080;
 const config = require('./config/key');
 
 const mongoose = require('mongoose');
@@ -20,6 +20,8 @@ mongoose.connect(config.mongoURI, {
 
 
 app.get('/', (req, res) => res.send('hello~~~안뇽?'));
+
+app.get('/api/hello', (req, res) => res.send('api/hello ~~~~~~~~~~~~~~~~~~'));
 
 app.post('/api/users/register', (req, res) => {
 
